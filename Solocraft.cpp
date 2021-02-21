@@ -94,7 +94,7 @@ private:
 					map->GetMapName(), difficulty);
 
 			for (int32 i = STAT_STRENGTH; i < MAX_STATS; ++i) {
-				player->ApplyStatPctModifier(UnitMods(UNIT_MOD_STAT_START + i), TOTAL_PCT, float(difficulty * 100));
+				player->ApplyStatPctModifier(UnitMods(UNIT_MOD_STAT_START + i), TOTAL_PCT, 100.f / (1.f + float(difficulty * 100) / 100.f) - 100.f);
 			}
 		}
 	}
